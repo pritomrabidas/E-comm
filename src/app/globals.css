@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+section{
+  overflow: hidden;
+}
 
 .btn.active {
   color: #33A0FF;
