@@ -2,6 +2,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FaRegHeart } from "react-icons/fa";
+import { BsCart } from "react-icons/bs";
+
 
 const BestSeller = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -14,19 +17,19 @@ const BestSeller = () => {
   const portfolioData = {
     Sneakers: [
       {
-        imgSrc: "/images/mountains.jpg",
+        imgSrc: "/sneakers-1.jpg",
         alt: "Mountains",
         title: "Mountains",
         description: "Lorem ipsum dolor..",
       },
       {
-        imgSrc: "/images/lights.jpg",
+        imgSrc: "/sneakers-2.jpg",
         alt: "Lights",
         title: "Lights",
         description: "Lorem ipsum dolor..",
       },
       {
-        imgSrc: "/images/nature.jpg",
+        imgSrc: "/sneakers-3.jpg",
         alt: "Nature",
         title: "Forest",
         description: "Lorem ipsum dolor..",
@@ -34,19 +37,19 @@ const BestSeller = () => {
     ],
     Bags: [
       {
-        imgSrc: "/images/cars1.jpg",
+        imgSrc: "/bages-1.jpg",
         alt: "Retro Car",
         title: "Retro",
         description: "Lorem ipsum dolor..",
       },
       {
-        imgSrc: "/images/cars2.jpg",
+        imgSrc: "/bages-2.jpg",
         alt: "Fast Car",
         title: "Fast",
         description: "Lorem ipsum dolor..",
       },
       {
-        imgSrc: "/images/cars3.jpg",
+        imgSrc: "/bages-3.jpg",
         alt: "Classic Car",
         title: "Classic",
         description: "Lorem ipsum dolor..",
@@ -54,19 +57,19 @@ const BestSeller = () => {
     ],
     Belt: [
       {
-        imgSrc: "/images/people1.jpg",
+        imgSrc: "/belt-1.jpg",
         alt: "Girl",
         title: "Girl",
         description: "Lorem ipsum dolor..",
       },
       {
-        imgSrc: "/images/people2.jpg",
+        imgSrc: "/belt-2.jpg",
         alt: "Man",
         title: "Man",
         description: "Lorem ipsum dolor..",
       },
       {
-        imgSrc: "/images/people3.jpg",
+        imgSrc: "/belt-3.jpg",
         alt: "Woman",
         title: "Woman",
         description: "Lorem ipsum dolor..",
@@ -120,33 +123,48 @@ const BestSeller = () => {
 
           {/* Portfolio Gallery Grid */}
           <div className="m-auto flex justify-center w-full">
-            <div className="  grid-cols-3 flex">
+            <div className="  grid-cols-3 grid gap-2 w-full">
               {(selectedCategory === "all"
                 ? allItems
                 : portfolioData[selectedCategory]
               ).map((item, index) => (
                 <div key={index}>
-                  <div className="">
-                    <Image
-                      width={100}
-                      height={100}
-                      src={item.imgSrc}
-                      alt={item.alt}
-                      style={{ width: "100%" }}
-                    />
-                    <h4>{item.title}</h4>
-                    <p>{item.description}</p>
+                  <div>
+                    <div className="relative  group">
+                      <Image
+                        width={100}
+                        height={100}
+                        src={item.imgSrc}
+                        alt={item.alt}
+                        style={{ width: "100%" }}
+                        className="rounded"
+                      />
+                      <div className="absolute top-0 w-full h-full group-[]:scale-90 cursor-pointer ">
+                        <div className="hover:bg-[#FFFFFF] w-full h-full rounded-md hover:duration-1000 delat-100 justify-center flex items-center">
+                          <ul className="flex gap-x-2.5 text-3xl  text-[#33A0FF] ">
+                            <li className="border rounded-full border-[#BsCart] p-4"><FaRegHeart/></li>
+                            <li className="border rounded-full border-[#BsCart] p-4"><BsCart/></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <h4 className="text-lg font-Poppins font-medium text-secondary">
+                      {item.title}
+                    </h4>
+                    <p className="text-base font-Poppins font-normal text-secondary">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          <a
+          <Link
             href="/"
-            className="font-medium font-Poppins text-xl text-[#33A0FF] flex mx-auto pt-5 border-b-[3px] border-[#33A0FF] w-fit mb-6 "
+            className="font-medium font-Poppins text-xl text-[#33A0FF] flex mx-auto pt-5 border-b-[3px] border-[#33A0FF] w-fit my-6 "
           >
             LOAD MORE
-          </a>
+          </Link>
         </div>
       </div>
     </section>
