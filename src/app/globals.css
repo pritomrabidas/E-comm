@@ -8,3 +8,50 @@ section{
 .btn.active {
   color: #33A0FF;
 }
+
+::-webkit-scrollbar{
+  width: 13px;
+}
+::-webkit-scrollbar-track{
+  background: #c5daf6 ;
+}
+::-webkit-scrollbar-thumb{
+  background: #40BFFF;
+  border-radius: 10px;
+  border: 0px solid transparent;
+}
+.paginate_product li a {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #000000;
+  background-color: #F9F1E7;
+  border-radius: 0.25rem;
+}
+
+.paginate_product .selected a {
+  background-color: var(--secandari); /* Use your secondary color variable here */
+}
+
+.paginate_product .previous {
+  display: none;
+}
+
+.pagiante_blog_product li a {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #000000;
+  background-color: #F9F1E7;
+  border-radius: 0.25rem;
+}
+
+.pagiante_blog_product .selected a {
+  background-color: var(--secandari); /* Use your secondary color variable here */
+}
+
+.pagiante_blog_product .previous {
+  display: none;
+}

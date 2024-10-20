@@ -21,7 +21,7 @@ const Navbar = () => {
     Setsidebar(true);
   };
   return (
-    <nav className="bg-white border-b border-gray-200 w-full fixed z-30 shadow">
+    <nav className="bg-white border-b border-gray-200 w-full fixed z-30 shadow cursor-pointer">
       <div className="container m-auto flex justify-between  items-center 2xl:py-6 xl:py-6 lg:py-6 md:py-3 sm:py-3 py-2 px-2 ">
         <div className="text-3xl font-bold pr-1">
           <Image
