@@ -55,3 +55,22 @@ section{
 .pagiante_blog_product .previous {
   display: none;
 }
+
+.product-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.large-image {
+  margin-bottom: 20px;
+}
+.thumbnails {
+  display: flex;
+  justify-content: center;
+}
+.thumbnail {
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+.thumbnail.active {
+  border-color: blue;}
