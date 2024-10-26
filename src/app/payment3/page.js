@@ -17,10 +17,10 @@ const page = () => {
               </li>
             </ul>
           </div>
-          <h3 className="font-semibold font-Raleway text-3xl text-[#40BFFF] text-center">
+          <h3 className="font-semibold font-Raleway text-3xl text-[#40BFFF] text-center p-5">
             Make Payment
           </h3>
-          <div className="">
+          <div className="pb-6">
             <ul className="flex justify-center pt-10 gap-5">
               <li className="w-9 h-9 rounded-full bg-brand items-center justify-center flex text-base font-bold text-primary ">
                 1
@@ -28,14 +28,16 @@ const page = () => {
               <li className="w-9 h-9 rounded-full bg-brand items-center justify-center flex text-base font-bold text-primary">
                 2
               </li>
-              <li className="w-9 h-9 rounded-full bg-[#999999] items-center justify-center flex text-base font-bold text-primary">
+              <li className="w-9 h-9 rounded-full bg-brand items-center justify-center flex text-base font-bold text-primary">
                 3
               </li>
             </ul>
           </div>
-            <FaCheck className="text-base text-primary"/>
+            <li className="bg-brand p-5 rounded-full flex justify-center mx-auto w-fit list-none">
+              <FaCheck className="text-base text-primary " />
+            </li>
           <button className="mt-6 px-8 py-3 rounded font-Raleway font-bold text-2xl text-primary bg-brand mx-auto flex ">
-            Confirm
+          Complete
           </button>
         </div>
       </div>
