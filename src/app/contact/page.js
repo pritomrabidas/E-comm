@@ -3,9 +3,9 @@ import Image from "next/image";
 const page = () => {
   return (
     <section className="py-32">
-      <div className="container">
-        <div className="flex gap-20">
-          <div className="w-1/2 bg-brand flex">
+      <div className="container m-auto px-3">
+        <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row 2xl:flex-row gap-20">
+          <div className="2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full w-full bg-brand flex rounded px-2">
             <div className="w-1/2">
               <Image
                 src={"/contact.png"}
@@ -15,8 +15,8 @@ const page = () => {
                 className="w-full h-full]"
               />
             </div>
-            <div className="w-1/2 justify-center items-center m-auto">
-              <h3 className="font-Raleway font-semibold text-3xl text-[#FFFFFF] pb-5">
+            <div className="w-1/2 justify-center items-center m-auto py-4">
+              <h3 className="font-Raleway font-semibold 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-3xl sm:text-2xl text-2xl  text-[#FFFFFF] 2xl:pb-5 xl:pb-5 lg:pb-5 md:pb-4 sm:pb-3 pb-2">
                 Get in touch
               </h3>
               <h4 className="font-Raleway font-medium text-base text-[#FFFFFF] py-5">
@@ -30,7 +30,7 @@ const page = () => {
               </p>
             </div>
           </div>
-          <div className="w-1/2 items-center mx-auto flex">
+          <div className="2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-full sm:w-full w-full items-center mx-auto flex">
             <div className="flex-col flex">
               <input
                 type="text"

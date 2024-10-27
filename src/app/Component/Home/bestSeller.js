@@ -85,13 +85,13 @@ const BestSeller = () => {
   ];
   return (
     <section className="relative">
-      <div className="container  m-auto">
+      <div className="container  m-auto px-3">
         <div className="w-full">
-          <h2 className="font-semibold font-Poppins text-4xl text-[#22262A] pt-14 pb-6 mx-auto flex justify-center">
+          <h2 className="font-semibold font-Poppins 2xl:text-4xl xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl text-2xl text-[#22262A] pt-14 pb-6 mx-auto flex justify-center">
             BEST SELLER
           </h2>
           <div id="myBtnContainer " className="pb-10">
-            <ul className="list-none flex gap-20 justify-center font-Poppins font-normal text-xl text-secondary cursor-pointer">
+            <ul className="list-none flex justify-center font-Poppins font-normal 2xl:gap-20 xl:gap-20 lg:gap-20 md:gap-12 sm:gap-10 gap-5 text-base sm:text-base md:text-xl lg:text-xl 2xl:text-xl text-secondary cursor-pointer">
               <li
                 className={`btn ${selectedCategory === "all" ? "active" : ""}`}
                 onClick={() => filterSelection("all")}
@@ -141,9 +141,9 @@ const BestSeller = () => {
                       />
                       <div className="absolute top-0 w-full h-full group-[]:scale-90 cursor-pointer ">
                         <div className="hover:bg-[#FFFFFF] w-full h-full rounded-md hover:duration-1000 delat-100 justify-center flex items-center">
-                          <ul className="flex gap-x-2.5 text-3xl  text-[#33A0FF] ">
-                            <li className="border rounded-full border-[#BsCart] p-4"><FaRegHeart/></li>
-                            <li className="border rounded-full border-[#BsCart] p-4"><BsCart/></li>
+                          <ul className="flex 2xl:gap-x-2.5 xl:gap-x-2.5 lg:gap-x-2.5 md:gap-2 sm:gap-x-1.5 gap-1 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-2xl sm:text-2xl text-xl  text-[#33A0FF] ">
+                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2"><FaRegHeart/></li>
+                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2"><BsCart/></li>
                           </ul>
                         </div>
                       </div>

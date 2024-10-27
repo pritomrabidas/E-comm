@@ -5,7 +5,7 @@ const Sneaker = () => {
   return (
     <div className="bg-brand grid 2xl:grid-cols-2 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 w-full">
       <div className="px-24 py-16 mx-auto 2xl:text-start xl:text-start lg:text-start md:text-center sm:text-center text-center">
-        <h2 className="font-medium font-Poppins 2xl:text-5xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl text-[#FFFFFF]  pb-5 w-full">
+        <h2 className="font-medium font-Poppins 2xl:text-5xl xl:text-5xl lg:text-2xl md:text-2xl sm:text-2xl text-xl text-[#FFFFFF]  pb-5 w-full">
           Adidas Men Running Sneakers
         </h2>
         <p className="font-normal font-Poppins 2xl:text-xl xl:text-xl lg:text-lg md:text-base sm:text-sm text-xs text-[#FFFFFF] pb-4">
@@ -22,6 +22,7 @@ const Sneaker = () => {
         <div className="">
           <Image
             src="/sneakers.png"
+            alt="sneakers"
             width={1000}
             height={1000}
             className="w-full h-full"

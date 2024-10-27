@@ -1,8 +1,8 @@
 const Quality = () => {
   return (
-    <div className="mt-12 bg-[#F6F7F8] py-5 px-4 rounded">
-      <h3 className="font-Poppins font-medium text-lg text-[#22262A] pb-5">Hot Deals</h3>
-      <div className="flex justify-between font-normal font-Poppins text-lg text-secondary ">
+    <div className="mt-12 bg-[#F6F7F8] py-5 px-4 rounded 2xl:text-lg xl:text-lg lg:text-lg md:text-lg sm:text-base text-base">
+      <h3 className="font-Poppins font-medium  text-[#22262A] pb-5">Hot Deals</h3>
+      <div className="flex justify-between font-normal font-Poppins  text-secondary ">
         <ul className="HotDeal">
             <li className="pb-4">Nike</li>
             <li className="pb-4">Airmax</li>

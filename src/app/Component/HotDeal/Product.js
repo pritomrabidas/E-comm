@@ -18,11 +18,11 @@ const Product = ({ itemsPerPage }) => {
             />
             <div className="absolute top-0 w-full h-full group-[]:scale-90 cursor-pointer">
               <div className="hover:bg-[#FFFFFF] w-full h-full rounded-md hover:duration-1000 delat-100 justify-center flex items-center">
-                <ul className="flex gap-x-2.5 text-3xl  text-[#33A0FF] ">
-                  <li className="border rounded-full border-[#BsCart] p-4">
+                <ul className="flex 2xl:gap-x-2.5 xl:gap-x-2.5 lg:gap-x-2.5 md:gap-2 sm:gap-x-1.5 gap-1 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-2xl sm:text-2xl text-xl  text-[#33A0FF] ">
+                  <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2">
                     <FaRegHeart />
                   </li>
-                  <li className="border rounded-full border-[#BsCart] p-4">
+                  <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2">
                     <BsCart />
                   </li>
                 </ul>
@@ -30,21 +30,37 @@ const Product = ({ itemsPerPage }) => {
             </div>
           </div>
           <div className="py-5 px-10 ">
-          <h4 className="text-lg font-Poppins font-bold text-[#223263]">
-            Nike Air Max 270 React
-          </h4>
-          <ul className="flex gap-3.5 text-[#FFC600] text-sm justify-center py-1">
-            <li><FaStar/></li>
-            <li><FaStar/></li>
-            <li><FaStar/></li>
-            <li><FaStar/></li>
-            <li className="text-[#C1C8CE]"><FaStar/></li>
-          </ul>
-          <ul className="flex gap-2 text-sm justify-center py-1 items-center">
-            <li className="text-lg text-[#40BFFF] font-bold font-Poppins">$299,43</li>
-            <li className="text-sm text-[#9098B1] font-normal font-Poppins">$534,33</li>
-            <li className="text-sm text-[#FB7181] font-bold font-Poppins">24% Off</li>
-          </ul>
+            <h4 className="text-lg font-Poppins font-bold text-[#223263]">
+              Nike Air Max 270 React
+            </h4>
+            <ul className="flex gap-3.5 text-[#FFC600] text-sm justify-center py-1">
+              <li>
+                <FaStar />
+              </li>
+              <li>
+                <FaStar />
+              </li>
+              <li>
+                <FaStar />
+              </li>
+              <li>
+                <FaStar />
+              </li>
+              <li className="text-[#C1C8CE]">
+                <FaStar />
+              </li>
+            </ul>
+            <ul className="flex gap-2 text-sm justify-center py-1 items-center">
+              <li className="text-lg text-[#40BFFF] font-bold font-Poppins">
+                $299,43
+              </li>
+              <li className="text-sm text-[#9098B1] font-normal font-Poppins">
+                $534,33
+              </li>
+              <li className="text-sm text-[#FB7181] font-bold font-Poppins">
+                24% Off
+              </li>
+            </ul>
           </div>
         </div>
       </div>
