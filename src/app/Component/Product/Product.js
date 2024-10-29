@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FaRegHeart } from "react-icons/fa";
 import { BsCart } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
-const Product = ({ itemsPerPage }) => {
+const Product = () => {
   return (
     <div className="m-auto flex justify-center w-full 2xl:pb-4 xl:pb-4 lg:pb-4 md:pb-3 sm:pb-2 pb-0">
       <div className="bg-[#F6F7F8] shadow">

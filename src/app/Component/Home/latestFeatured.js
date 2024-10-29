@@ -71,14 +71,14 @@ const LatestFeatured = () => {
             />
           </div>
         </div>
-        <div className="2xl:py-24 xl:py-24 lg:py-24 md:py-20 sm:py-16 py-16 justify-center flex">
+        <div className="2xl:py-24 xl:py-24 lg:py-24 md:py-20 sm:py-16 py-14 justify-center flex">
           <div className="border-2 border-[#BCDDFE] flex rounded-tr rounded-br">
             <input
               type="search"
               placeholder="Search query...."
-              className="outline-none 2xl:pl-5 xl:pl-5 lg:pl-5 md:pl-4 sm:pl-3 pl-3 2xl:py-5 xl:py-5 lg:py-5 md:py-5 sm:py-4 py-3 2xl:pr-80 xl:pr-80 lg:pr-80 md:pr-72 sm:pr-64 pr-14 placeholder:text-base sm:placeholder:text-lg md:placeholder:text-xl lg:placeholder:text-xl xl:placeholder:text-xl 2xl:placeholder:text-xl  placeholder:text-secondary"
+              className="outline-none 2xl:pl-5 xl:pl-5 lg:pl-5 md:pl-4 sm:pl-3 pl-3 2xl:py-5 xl:py-5 lg:py-5 md:py-5 sm:py-4 py-3 2xl:pr-80 xl:pr-80 lg:pr-80 md:pr-72 sm:pr-40 pr-4 placeholder:text-base sm:placeholder:text-lg md:placeholder:text-xl lg:placeholder:text-xl xl:placeholder:text-xl 2xl:placeholder:text-xl  placeholder:text-secondary"
             />
-            <button className="font-semibold font-Poppins 2xl:text-xl xl:text-xl lg:text-xl md:text-xl sm:text-lg text-lg text-[#FFFFFF] bg-brand w-full 2xl:py-4 xl:py-4 lg:py-4 md:py-4 sm:py-3 py-3 2xl:px-7 xl:px-7 lg:px-7 md:px-6 sm:px-5 px-5 ">
+            <button className="font-semibold font-Poppins 2xl:text-xl xl:text-xl lg:text-xl md:text-lg sm:text-base text-base text-[#FFFFFF] bg-brand w-full 2xl:py-4 xl:py-4 lg:py-4 md:py-4 sm:py-3 py-3 2xl:px-7 xl:px-7 lg:px-7 md:px-5 sm:px-4 px-3 ">
               Search
             </button>
           </div>

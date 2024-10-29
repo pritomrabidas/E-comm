@@ -87,7 +87,7 @@ const BestSeller = () => {
     <section className="relative">
       <div className="container  m-auto px-3">
         <div className="w-full">
-          <h2 className="font-semibold font-Poppins 2xl:text-4xl xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl text-2xl text-[#22262A] pt-14 pb-6 mx-auto flex justify-center">
+          <h2 className="font-semibold font-Poppins 2xl:text-4xl xl:text-4xl lg:text-4xl md:text-3xl sm:text-2xl text-xl text-[#22262A] pt-14 pb-6 mx-auto flex justify-center">
             BEST SELLER
           </h2>
           <div id="myBtnContainer " className="pb-10">
@@ -148,10 +148,10 @@ const BestSeller = () => {
                         </div>
                       </div>
                     </div>
-                    <h4 className="text-lg font-Poppins font-medium text-secondary">
+                    <h4 className="2xl:text-lg xl:text-lg lg:text-lg md:text-lg sm:text-base text-sm font-Poppins font-medium text-secondary">
                       {item.title}
                     </h4>
-                    <p className="text-base font-Poppins font-normal text-secondary">
+                    <p className="2xl:text-base xl:text-base lg:text-base md:text-base sm:text-sm text-xs font-Poppins font-normal text-secondary">
                       {item.description}
                     </p>
                   </div>
@@ -161,7 +161,7 @@ const BestSeller = () => {
           </div>
           <Link
             href="/"
-            className="font-medium font-Poppins text-xl text-[#33A0FF] flex mx-auto pt-5 border-b-[3px] border-[#33A0FF] w-fit my-6 "
+            className="font-medium font-Poppins 2xl:text-xl xl:text-xl lg:text-xl md:text-lg sm:text-base text-base text-[#33A0FF] flex mx-auto pt-5 border-b-2 border-[#33A0FF] w-fit my-6 "
           >
             LOAD MORE
           </Link>

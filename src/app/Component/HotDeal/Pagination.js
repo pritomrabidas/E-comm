@@ -16,8 +16,8 @@ const Pagination = ({ itemsPerPage }) => {
   };
 
   return (
-    <div className="container mx-auto ">
-      <div className="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-3 grid-cols-3 gap-5">
+    <div className="container mx-auto px-1">
+      <div className="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-3 grid-cols-3 gap-5">
       <Product currentItems={currentItems} />
       <Product currentItems={currentItems} />
       <Product currentItems={currentItems} />

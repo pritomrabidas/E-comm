@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa6";
 
 const page = () => {
   return (
-    <section className=" absolute top-0 left-0 w-full h-full  items-center flex bg-[rgba(32,14,14,0.22)] z-50">
+    <section className=" absolute top-0 bottom-0 right-0 left-0 w-full h-full  items-center flex bg-[rgba(32,14,14,0.22)] z-50">
       <div className="container m-auto justify-center flex">
         <div className="bg-white 2xl:py-16 xl:py-16 lg:py-16 md:py-12 sm:py-8 py-7 2xl:px-20 xl:px-20 lg:px-20 md:px-20 sm:px-14 px-12 rounded-md">
         <div>

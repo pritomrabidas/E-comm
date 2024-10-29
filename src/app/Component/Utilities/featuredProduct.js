@@ -17,10 +17,10 @@ const FeaturedProduct = ({ Imag, Heading }) => {
             />
           </div>
           <div className="">
-            <p className="font-normal font-Poppins text-xl text-secondary">
+            <p className="font-normal font-Poppins 2xl:text-xl xl:text-xl lg:text-xl md:text-xl sm:text-base text-base text-secondary">
               {Heading}{" "}
             </p>
-            <ul className="flex pt-11 pb-5 text-[#FFC600] text-lg gap-1">
+            <ul className="flex 2xl:pt-11 xl:pt-11 lg:pt-10 md:pt-8 sm:pt-6 pt-4 2xl:pb-5 xl:pb-5 lg:pb-5 md:pb-4 sm:pb-3 pb-3 text-[#FFC600] 2xl:text-lg xl:text-lg lg:text-lg md:text-base sm:text-sm text-sm gap-1">
               <li>
                 <FaStar />
               </li>
@@ -37,11 +37,11 @@ const FeaturedProduct = ({ Imag, Heading }) => {
                 <FaStar />
               </li>
             </ul>
-            <div className="flex gap-1">
-              <p className="font-medium font-Poppins text-xl text-[#FF4858]">
+            <div className="flex gap-1 2xl:text-xl xl:text-xl lg:text-xl md:text-base sm:text-sm text-sm">
+              <p className="font-medium font-Poppins text-[#FF4858]">
                 $499
               </p>
-              <p className="font-medium font-Poppins text-xl text-[#C1C8CE]">
+              <p className="font-medium font-Poppins text-[#C1C8CE]">
                 $499
               </p>
             </div>
