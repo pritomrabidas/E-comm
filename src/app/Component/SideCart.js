@@ -2,10 +2,22 @@ import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
 import { AiTwotoneDelete } from "react-icons/ai";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 const SideCart = ({ HandleSideCart }) => {
+  const cartRef = useRef(null)
+  const HandleToggle =(e)=>{
+    if (e.target.contains(cartRef.current)) {
+      HandleSideCart(false)
+    }
+  }
+  useEffect(()=>{
+    document.addEventListener("mousedown",HandleToggle)
+    return ()=>document.removeEventListener("mousedown",HandleToggle)
+  },[])
+
   return (
-    <div className="fixed top-0 left-0 bg-[rgba(0,0,0,0.1)] w-full h-full">
+    <div ref={cartRef} className="fixed top-0 left-0 bg-[rgba(0,0,0,0.1)] w-full h-full">
       <div className=" 2xl:w-2/5 xl:w-1/2 lg:w-8/12 md:w-3/4 sm:w-4/5 w-11/12 h-[90%] bg-primary top-[5%] right-0 absolute rounded-2xl 2xl:p-14 xl:p-14 lg:p-14 md:p-12 sm:p-10 p-8">
         <ul className="justify-between flex border-b-2 border-[#c4c4c4] 2xl:pb-8 xl:pb-8 lg:pb-8 md:pb-7 sm:pb-5 pb-5 mb-5">
           <li className="font-Raleway font-medium 2xl:text-2xl xl:text-2xl lg:text-2xl md:text-2xl sm:text-xl text-xl text-secondary">
