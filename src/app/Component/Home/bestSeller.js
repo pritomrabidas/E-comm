@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { BsCart } from "react-icons/bs";
+import Route from "@/app/api/route";
 
 
 const BestSeller = () => {
@@ -13,6 +14,15 @@ const BestSeller = () => {
     setSelectedCategory(category);
   };
 
+  useEffect(()=>{
+    Route().then((res)=>{
+      console.log(res);     
+    }).catch((err)=>{
+      console.log(err);
+      
+    })
+  },[])
+  
   // Portfolio data for each category
   const portfolioData = {
     Sneakers: [
