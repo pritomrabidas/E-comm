@@ -6,42 +6,33 @@ import { FaRegHeart } from "react-icons/fa";
 import { BsCart } from "react-icons/bs";
 import Route from "@/app/api/route";
 
-
 const BestSeller = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [productList, setProductList] = useState([]);
 
   const filterSelection = (category) => {
     setSelectedCategory(category);
   };
 
-  useEffect(()=>{
-    Route().then((res)=>{
-      console.log(res);     
-    }).catch((err)=>{
-      console.log(err);
-      
-    })
-  },[])
-  
+  useEffect(() => {
+    Route()
+      .then((res) => {
+        setProductList(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log(productList);
+
   // Portfolio data for each category
+
   const portfolioData = {
     Sneakers: [
       {
         imgSrc: "/sneakers-1.jpg",
         alt: "Mountains",
         title: "Mountains",
-        description: "Lorem ipsum dolor..",
-      },
-      {
-        imgSrc: "/sneakers-2.jpg",
-        alt: "Lights",
-        title: "Lights",
-        description: "Lorem ipsum dolor..",
-      },
-      {
-        imgSrc: "/sneakers-3.jpg",
-        alt: "Nature",
-        title: "Forest",
         description: "Lorem ipsum dolor..",
       },
     ],
@@ -52,36 +43,12 @@ const BestSeller = () => {
         title: "Retro",
         description: "Lorem ipsum dolor..",
       },
-      {
-        imgSrc: "/bages-2.jpg",
-        alt: "Fast Car",
-        title: "Fast",
-        description: "Lorem ipsum dolor..",
-      },
-      {
-        imgSrc: "/bages-3.jpg",
-        alt: "Classic Car",
-        title: "Classic",
-        description: "Lorem ipsum dolor..",
-      },
     ],
     Belt: [
       {
         imgSrc: "/belt-1.jpg",
         alt: "Girl",
         title: "Girl",
-        description: "Lorem ipsum dolor..",
-      },
-      {
-        imgSrc: "/belt-2.jpg",
-        alt: "Man",
-        title: "Man",
-        description: "Lorem ipsum dolor..",
-      },
-      {
-        imgSrc: "/belt-3.jpg",
-        alt: "Woman",
-        title: "Woman",
         description: "Lorem ipsum dolor..",
       },
     ],
@@ -141,19 +108,23 @@ const BestSeller = () => {
                 <div key={index}>
                   <div>
                     <div className="relative  group">
-                      <Image
-                        width={100}
-                        height={100}
-                        src={item.imgSrc}
-                        alt={item.alt}
-                        style={{ width: "100%" }}
-                        className="rounded"
-                      />
+                        <Image
+                          width={100}
+                          height={100}
+                          src={item.imgSrc}
+                          alt={item.alt}
+                          style={{ width: "100%" }}
+                          className="rounded"
+                        />;
                       <div className="absolute top-0 w-full h-full group-[]:scale-90 cursor-pointer ">
                         <div className="hover:bg-[#FFFFFF] w-full h-full rounded-md hover:duration-1000 delat-100 justify-center flex items-center">
                           <ul className="flex 2xl:gap-x-2.5 xl:gap-x-2.5 lg:gap-x-2.5 md:gap-2 sm:gap-x-1.5 gap-1 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-2xl sm:text-2xl text-xl  text-[#33A0FF] ">
-                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2"><FaRegHeart/></li>
-                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2"><BsCart/></li>
+                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2">
+                              <FaRegHeart />
+                            </li>
+                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2">
+                              <BsCart />
+                            </li>
                           </ul>
                         </div>
                       </div>
