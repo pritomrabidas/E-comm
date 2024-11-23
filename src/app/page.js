@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Banner from "./Component/Home/banner";
 import BestSeller from "./Component/Home/bestSeller";
 import Sneakers from "./Component/Home/Sneakers";

@@ -1,65 +1,27 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { BsCart } from "react-icons/bs";
 import Route from "@/app/api/route";
 
 const BestSeller = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [activeTab, setActiveTab] = useState("all");
   const [productList, setProductList] = useState([]);
-
-  const filterSelection = (category) => {
-    setSelectedCategory(category);
-  };
-
+  // productList.length < 2
   useEffect(() => {
     Route()
       .then((res) => {
-        setProductList(res.data);
+        setProductList(res.data || []);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
   console.log(productList);
 
-  // Portfolio data for each category
-
-  const portfolioData = {
-    Sneakers: [
-      {
-        imgSrc: "/sneakers-1.jpg",
-        alt: "Mountains",
-        title: "Mountains",
-        description: "Lorem ipsum dolor..",
-      },
-    ],
-    Bags: [
-      {
-        imgSrc: "/bages-1.jpg",
-        alt: "Retro Car",
-        title: "Retro",
-        description: "Lorem ipsum dolor..",
-      },
-    ],
-    Belt: [
-      {
-        imgSrc: "/belt-1.jpg",
-        alt: "Girl",
-        title: "Girl",
-        description: "Lorem ipsum dolor..",
-      },
-    ],
-  };
-
-  // Combine all categories when "all" is selected
-  const allItems = [
-    ...portfolioData.Sneakers,
-    ...portfolioData.Bags,
-    ...portfolioData.Belt,
-  ];
   return (
     <section className="relative">
       <div className="container  m-auto px-3">
@@ -68,56 +30,53 @@ const BestSeller = () => {
             BEST SELLER
           </h2>
           <div id="myBtnContainer " className="pb-10">
-            <ul className="list-none flex justify-center font-Poppins font-normal 2xl:gap-20 xl:gap-20 lg:gap-20 md:gap-12 sm:gap-10 gap-5 text-base sm:text-base md:text-xl lg:text-xl 2xl:text-xl text-secondary cursor-pointer">
+            <ul className="list-none flex justify-center font-Poppins font-normal 2xl:gap-20 xl:gap-20 lg:gap-20 md:gap-12 sm:gap-10 gap-5 text-xs sm:text-sm md:text-xl lg:text-xl 2xl:text-xl text-secondary cursor-pointer">
               <li
-                className={`btn ${selectedCategory === "all" ? "active" : ""}`}
-                onClick={() => filterSelection("all")}
+                onClick={() => setActiveTab("all")}
+                className={` ${activeTab === "all" ? "text-blue-500" : ""}`}
               >
                 Show all
               </li>
               <li
-                className={`btn ${
-                  selectedCategory === "Sneakers" ? "active" : ""
+                onClick={() => setActiveTab("electronics")}
+                className={`${
+                  activeTab === "electronics" ? "text-blue-500" : ""
                 }`}
-                onClick={() => filterSelection("Sneakers")}
               >
-                Sneakers
+                Electronics
               </li>
               <li
-                className={`btn ${selectedCategory === "Bags" ? "active" : ""}`}
-                onClick={() => filterSelection("Bags")}
+                onClick={() => setActiveTab("change")}
+                className={`${activeTab === "change" ? "text-blue-500" : ""}`}
               >
-                Bags
+                Change title
               </li>
               <li
-                className={`btn ${selectedCategory === "Belt" ? "active" : ""}`}
-                onClick={() => filterSelection("Belt")}
+                onClick={() => setActiveTab("shoes")}
+                className={`${activeTab === "shoes" ? "text-blue-500" : ""}`}
               >
-                Belt
+                Shoes
               </li>
             </ul>
           </div>
 
           {/* Portfolio Gallery Grid */}
-          <div className="m-auto flex justify-center w-full">
-            <div className="  grid-cols-3 grid gap-2 w-full">
-              {(selectedCategory === "all"
-                ? allItems
-                : portfolioData[selectedCategory]
-              ).map((item, index) => (
-                <div key={index}>
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-10">
+            {productList.map((item, index) => (
+              <div key={index.id}>
+                {activeTab === "all" && (
                   <div>
-                    <div className="relative  group">
-                        <Image
-                          width={100}
-                          height={100}
-                          src={item.imgSrc}
-                          alt={item.alt}
-                          style={{ width: "100%" }}
-                          className="rounded"
-                        />;
+                    <div className="relative  group ">
+                      <img
+                        width={100}
+                        height={100}
+                        src={item.images?.[0] || "belt-1.jpg"}
+                        alt={item.title || "Product image"} // Use a descriptive alt property
+                        style={{ width: "100%" }}
+                        className="rounded"
+                      />
                       <div className="absolute top-0 w-full h-full group-[]:scale-90 cursor-pointer ">
-                        <div className="hover:bg-[#FFFFFF] w-full h-full rounded-md hover:duration-1000 delat-100 justify-center flex items-center">
+                        <div className="hover:bg-[#09030364] w-full h-full rounded-md hover:duration-1000 delat-100 justify-center flex items-center">
                           <ul className="flex 2xl:gap-x-2.5 xl:gap-x-2.5 lg:gap-x-2.5 md:gap-2 sm:gap-x-1.5 gap-1 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-2xl sm:text-2xl text-xl  text-[#33A0FF] ">
                             <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2">
                               <FaRegHeart />
@@ -129,17 +88,122 @@ const BestSeller = () => {
                         </div>
                       </div>
                     </div>
-                    <h4 className="2xl:text-lg xl:text-lg lg:text-lg md:text-lg sm:text-base text-sm font-Poppins font-medium text-secondary">
-                      {item.title}
+                    <h4 className="2xl:text-lg xl:text-lg lg:text-lg md:text-lg sm:text-base text-[10px] font-Poppins font-medium text-secondary py-2">
+                      {item.title || "No title available"}
                     </h4>
                     <p className="2xl:text-base xl:text-base lg:text-base md:text-base sm:text-sm text-xs font-Poppins font-normal text-secondary">
-                      {item.description}
+                      {item.description.substring(0, 20) ||
+                        "No description available"}{" "}
+                      .....
                     </p>
                   </div>
-                </div>
-              ))}
-            </div>
+                )}
+                {activeTab === "electronics" && (
+                  <div>
+                    <div className="relative  group ">
+                      <img
+                        width={100}
+                        height={100}
+                        src={item.images?.[0] || "belt-1.jpg"}
+                        alt={item.title || "Product image"} // Use a descriptive alt property
+                        style={{ width: "100%" }}
+                        className="rounded"
+                      />
+                      <div className="absolute top-0 w-full h-full group-[]:scale-90 cursor-pointer ">
+                        <div className="hover:bg-[#09030364] w-full h-full rounded-md hover:duration-1000 delat-100 justify-center flex items-center">
+                          <ul className="flex 2xl:gap-x-2.5 xl:gap-x-2.5 lg:gap-x-2.5 md:gap-2 sm:gap-x-1.5 gap-1 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-2xl sm:text-2xl text-xl  text-[#33A0FF] ">
+                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2">
+                              <FaRegHeart />
+                            </li>
+                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2">
+                              <BsCart />
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <h4 className="2xl:text-lg xl:text-lg lg:text-lg md:text-lg sm:text-base text-[10px] font-Poppins font-medium text-secondary py-2">
+                      {item.title || "No title available"}
+                    </h4>
+                    <p className="2xl:text-base xl:text-base lg:text-base md:text-base sm:text-sm text-xs font-Poppins font-normal text-secondary">
+                      {item.description.substring(0, 20) ||
+                        "No description available"}{" "}
+                      .....
+                    </p>
+                  </div>
+                )}
+                {activeTab === "change" && (
+                  <div>
+                    <div className="relative  group ">
+                      <img
+                        width={100}
+                        height={100}
+                        src={item.images?.[0] || "belt-1.jpg"}
+                        alt={item.title || "Product image"} // Use a descriptive alt property
+                        style={{ width: "100%" }}
+                        className="rounded"
+                      />
+                      <div className="absolute top-0 w-full h-full group-[]:scale-90 cursor-pointer ">
+                        <div className="hover:bg-[#09030364] w-full h-full rounded-md hover:duration-1000 delat-100 justify-center flex items-center">
+                          <ul className="flex 2xl:gap-x-2.5 xl:gap-x-2.5 lg:gap-x-2.5 md:gap-2 sm:gap-x-1.5 gap-1 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-2xl sm:text-2xl text-xl  text-[#33A0FF] ">
+                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2">
+                              <FaRegHeart />
+                            </li>
+                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2">
+                              <BsCart />
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <h4 className="2xl:text-lg xl:text-lg lg:text-lg md:text-lg sm:text-base text-[10px] font-Poppins font-medium text-secondary py-2">
+                      {item.title || "No title available"}
+                    </h4>
+                    <p className="2xl:text-base xl:text-base lg:text-base md:text-base sm:text-sm text-xs font-Poppins font-normal text-secondary">
+                      {item.description.substring(0, 20) ||
+                        "No description available"}{" "}
+                      .....
+                    </p>
+                  </div>
+                )}
+                {activeTab === "shoes" && (
+                  <div>
+                    <div className="relative  group ">
+                      <img
+                        width={100}
+                        height={100}
+                        src={item.images?.[0] || "belt-1.jpg"}
+                        alt={item.title || "Product image"} // Use a descriptive alt property
+                        style={{ width: "100%" }}
+                        className="rounded"
+                      />
+                      <div className="absolute top-0 w-full h-full group-[]:scale-90 cursor-pointer ">
+                        <div className="hover:bg-[#09030364] w-full h-full rounded-md hover:duration-1000 delat-100 justify-center flex items-center">
+                          <ul className="flex 2xl:gap-x-2.5 xl:gap-x-2.5 lg:gap-x-2.5 md:gap-2 sm:gap-x-1.5 gap-1 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-2xl sm:text-2xl text-xl  text-[#33A0FF] ">
+                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2">
+                              <FaRegHeart />
+                            </li>
+                            <li className="border rounded-full border-[#BsCart] 2xl:p-4 xl:p-4 lg:p-4 md:p-3 sm:p-2 p-2">
+                              <BsCart />
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <h4 className="2xl:text-lg xl:text-lg lg:text-lg md:text-lg sm:text-base text-[10px] font-Poppins font-medium text-secondary py-2">
+                      {item.title || "No title available"}
+                    </h4>
+                    <p className="2xl:text-base xl:text-base lg:text-base md:text-base sm:text-sm text-xs font-Poppins font-normal text-secondary">
+                      {item.description.substring(0, 20) ||
+                        "No description available"}{" "}
+                      .....
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
+
           <Link
             href="/"
             className="font-medium font-Poppins 2xl:text-xl xl:text-xl lg:text-xl md:text-lg sm:text-base text-base text-[#33A0FF] flex mx-auto pt-5 border-b-2 border-[#33A0FF] w-fit my-6 "
