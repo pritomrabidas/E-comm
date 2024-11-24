@@ -19,8 +19,8 @@ const BestSeller = () => {
         console.log(err);
       });
   }, []);
-
-  console.log(productList);
+  productList.length = 15
+  console.log();
 
   return (
     <section className="relative">
@@ -96,6 +96,9 @@ const BestSeller = () => {
                         "No description available"}{" "}
                       .....
                     </p>
+                    <h4 className="2xl:text-base xl:text-base lg:text-base md:text-sm sm:text-xs text-[10px] font-Poppins font-medium text-secondary py-2">
+                      $ {item.price || "No title available"}
+                    </h4>
                   </div>
                 )}
                 {activeTab === "electronics" && (
